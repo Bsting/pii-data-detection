@@ -82,7 +82,9 @@ Select hyperparameters and a specific variant of a model family for training.
 Fit the model with the training data.
 
 ### 5. Model Evaluation
-Evaluate the model performance by submitting the inference results to Kaggle.
+Evaluate the model performance by submitting the inference results to the competition. There are 2 scores: the public score and the private score.
+- The public score is calculated by using approximately 20% of the test data, and this score is calculated after the inference results successfully submitted.
+- The private score is calculated by using approximately 80% of the test data, and this score is calculated after the competition end. 
 
 ## Experiment
 Observations from the EDA done on the data collected from [The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data):
@@ -115,3 +117,42 @@ Few experiments were done based on the EDA observations
 - V9: Fine-Tune DeBERTa-V3-Small with train data + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation + No Stride with Max Length 1024
 - V10: Fine-Tune DeBERTa-V3-Small with train data + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation + No Stride with Max Length 2048
 - V11: Fine-Tune DeBERTa with train data + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation + No Stride with Max Length 1024
+
+### V2: Fine tune DistilBERT with train data + stride
+In order to find the optimal stride value that yields the best evaluation results, the model was trained using various stride values. Evaluation resutls as below
+Stride | Public Score
+-|-
+8 | 0.85732
+<b>32</b> | <b>0.86220</b>
+64 | 0.87082
+128 | 0.86045
+
+<br>Stride value 64 give best public score, and this value was used in V3, V4, V5, V6, V7 and V8.
+
+### V3: Fine tune DistilBERT with train data + stride + down sample 'O' 
+To determine the best down-sampling ratio value for ‘O’ label that yields the best evaluation results, the model was trained using different down-sampling ratio. Evaluation resutls as below
+Ratio | Public Score
+-|-
+0.20 | 0.87436
+0.30 | 0.87546
+<b>0.40</b> | <b>0.86778</b>
+0.50 | 0.86380
+
+<br>Ratio 0.30 give best public score, and this value was used in V4, V5, V6, V7 and V8.
+
+### Evaluation Resutls
+Experiment | Model | Public Score | Private Score
+-|-|-|-
+V1 | DistilBERT | 0.85292 | 0.87363
+V2 | DistilBERT | 0.87082 | 0.87942
+V3 | DistilBERT | 0.87546 | 0.89158
+V4 | DistilBERT | 0.88257 | 0.88788
+V5 | BERT | 0.90284 | 0.90314
+V6 | DistilBERT | 0.89153 | 0.89261
+V7 | DistilBERT | 0.89589 | 0.89253
+V8 | BERT | 0.90500 | 0.90788
+V9 | DeBERTa-V3-Small | 0.94756 | 0.94219
+<b>V10</b> | <b>DeBERTa-V3-Small</b> | <b>0.95791</b> | <b>0.94885</b>
+V11 | DeBERTa | 0.93357 | 0.92906
+
+V10 achieved the highest evaluation results on both the public and private leaderboards, placing me at rank 1178 out of 2049 on the public leaderboard and 1081 out of 2049 on the private leaderboard. More information of the leaderboard can refer [The Learning Agency Lab - PII Data Detection Leaderboard](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/leaderboard) or [leaderboard-eda](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
