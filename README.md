@@ -105,6 +105,8 @@ What we can do:
 - split the text to multiple sub-texts.
 - upper whisker end of the position of PII token is 1184, we can fine tune a model which accept longer input sequence to include as much as possible PII tokens without striding the tokens.
 
+For more EDA detail, refer [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
+
 Few experiments were done based on the EDA observations
 - V1: Fine tune DistilBERT with train data
 - V2: Fine tune DistilBERT with train data + stride
@@ -158,6 +160,8 @@ V11 | DeBERTa Base | 0.93357 | 0.92906
 V10 achieved the highest evaluation results on both the public and private leaderboards, placing me at rank 1178 out of 2049 on the public leaderboard and 1081 out of 2049 on the private leaderboard. More information of the leaderboard can refer [The Learning Agency Lab - PII Data Detection Leaderboard](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/leaderboard) or [leaderboard-eda](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
 
 ![image](https://github.com/Bsting/pii-data-detection/assets/7638997/5d221698-754c-4ffd-9937-bc338f8ba8b0)
+
+Notebooks for the experiments refer [train_inference_notebook](https://github.com/Bsting/pii-data-detection/tree/main/train_inference_notebook).
 
 ## Key Takeaway
 - EDA is crucial in the modeling process.
