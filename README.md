@@ -84,4 +84,34 @@ Fit the model with the training data.
 ### 5. Model Evaluation
 Evaluate the model performance by submitting the inference results to Kaggle.
 
+## Experiment
+Observations from the EDA done on the data collected from [The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data):
+- training dataset has imbalanced classes
+- 86.12% of the documents with non-PII entity i.e. 'O' label (non-PII) only.
+- 99.95% of the labels is non-PII entity ('O' label).
+- label 'B-NAME_STUDENT' and 'I-NAME_STUDENT' for entity 'NAME_STUDENT' are have higher frequency compared to others, except 'O' label.
+- minimum token length is 69, maximum token length is 3298.
+- 31.64% of the documents have token length <= 512.
+- for documents with at leaset one PII entity, 16.93% of them have token length <= 512.
+- 76.74% of the PII entity tokens at position <= 512 in a document.
+- if a pre-trained transformer model receives an input sequence with a maximum length of 512 tokens, any tokens beyond position 512 will not be used during training.
 
+What we can do:
+- collect external data to increase label for entities 'ID_NUM', 'EMAIL', 'URL_PERSONAL', 'PHONE_NUM' and 'STREET_ADDRESS'.
+- down sample 'O' label.
+- use stride in tokenazation process, stride helps break up large document into smaller ones with overlapping tokens.
+- split the text to multiple sub-texts.
+- upper whisker end of the position of PII token is 1184, we can fine tune a model which accept longer input sequence to include as much as possible PII tokens without striding the tokens.
+
+Few experiments were done based on the EDA observations
+- V1: Fine tune DistilBERT with train data
+- V2: Fine tune DistilBERT with train data + stride
+- V3: Fine tune DistilBERT with train data + stride + down sample 'O' 
+- V4: Fine tune DistilBERT with train data + stride + down sample 'O' + external data
+- V5: Fine tune BERT with train data + stride + down sample 'O' + external data
+- V6: Fine tune DistilBERT with train data + stride + down sample 'O' + external data + Evaluation Metric F-Beta5
+- V7: Fine tune DistilBERT with train data + stride + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation
+- V8: Fine tune BERT with train data + stride + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation
+- V9: Fine-Tune DeBERTa-V3-Small with train data + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation + No Stride with Max Length 1024
+- V10: Fine-Tune DeBERTa-V3-Small with train data + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation + No Stride with Max Length 2048
+- V11: Fine-Tune DeBERTa with train data + down sample 'O' + external data + Evaluation Metric F-Beta5 + Cross Validation + No Stride with Max Length 1024
