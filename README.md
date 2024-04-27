@@ -1,7 +1,7 @@
 <h1 align="center">Foward College</h1>
 <h1 align="center">Applied Data Science - Capstone Project</h1>
 
-# Project Title: Personally Identifiable Information (PII) Data Detection
+## Project Title: Personally Identifiable Information (PII) Data Detection
 
 ## Problem Statement
 The goal of this project is to identify PII in text data. PII detection is important for several reasons:
@@ -16,7 +16,7 @@ The goal of this project is to identify PII in text data. PII detection is impor
 - <b>Data Imbalance</b>: PII entities are relatively rare in large datasets. Imbalanced classes affect model training.
 
 ## Approach
-For this project, we use a dataset from a Kaggle competition ‘__[The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data)__’. The competition was open from 18<sup>th</sup> January 2024 to 24<sup>th</sup> April 2024 with the goal of training a model to achieve a high score on the leaderboard.
+For this project, i use a dataset from a Kaggle competition ‘[The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data)’. The competition was open from 18<sup>th</sup> January 2024 to 24<sup>th</sup> April 2024 with the goal to develop a model that detects personally identifiable information (PII) in student writing. I aim to train a model with the objective of achieving a high score on the competition leaderboard 🏆.
 
 ### __[The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data)__ 
 #### Overview
@@ -47,16 +47,41 @@ The goal of this competition is to develop a model that detects personally ident
   4. tokens (string): a string representation of each token (list)
   5. trailing_whitespace (bool): a boolean value indicating whether each token is followed by whitespace (list)
   6. labels (string) [training data only]: a token label in BIO format (list)
-
+- Token labels are presented in BIO (Beginning, Inner, Outer) format. 
+  - PII type is prefixed with “B-” when it is the beginning of an entity. 
+  - PII type is prefixed with “I-” PII type if the token is a continuation of an entity.
+  - Tokens that are not PII are labeled “O”.
+    
 ## Project File Structure
-- pii-data-detection-eda.ipynb file, EDA notebook on the PII training dataset.
-- leaderboard-eda.ipynb file, EDA notebook on competition leaderboard data released on 25<sup>th</sup> April 2024.
-- train_inference_notebook folder, contains notebooks used to train the model and generate submission file for the competition.
-- data, data folder. Only contains data file for the leaderboard. Due to upload file size limit, PII training dataset can be downloaded from following:
-  - __[pii-detection-removal-from-educational-data](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/data)__
-  - __[pii-dd-mistral-generated](https://www.kaggle.com/datasets/nbroad/pii-dd-mistral-generated)__
-  - __[fix-punctuation-tokenization-external-dataset](https://www.kaggle.com/code/valentinwerner/fix-punctuation-tokenization-external-dataset/output)__
-  - __[reate-ai-generated-essays-using-llm](https://www.kaggle.com/datasets/minhsienweng/ai-generated-text-dataset)__
-  - __[pii-mistral-2k-fit-competition-v2](https://www.kaggle.com/datasets/mandrilator/pii-mistral-2k-fit-competition-v2)__
+- [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb) file, EDA notebook on the PII training dataset.
+- [leaderboard-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb) file, EDA notebook on competition leaderboard data released on 25<sup>th</sup> April 2024.
+- [train_inference_notebook](https://github.com/Bsting/pii-data-detection/tree/main/train_inference_notebook) folder, contains notebooks used to train the model and generate submission file for the competition.
+- [data](https://github.com/Bsting/pii-data-detection/tree/main/data), data folder. Only contains data file for the leaderboard. Due to upload file size limit, PII training dataset can be downloaded from following:
+  - [pii-detection-removal-from-educational-data](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/data)
+  - [pii-dd-mistral-generated](https://www.kaggle.com/datasets/nbroad/pii-dd-mistral-generated)
+  - [fix-punctuation-tokenization-external-dataset](https://www.kaggle.com/code/valentinwerner/fix-punctuation-tokenization-external-dataset/output)
+  - [reate-ai-generated-essays-using-llm](https://www.kaggle.com/datasets/minhsienweng/ai-generated-text-dataset)
+  - [pii-mistral-2k-fit-competition-v2](https://www.kaggle.com/datasets/mandrilator/pii-mistral-2k-fit-competition-v2)
 
 <br/>***Due to upload file size limit, no model file is uploaded to this repo***
+
+## Workflow
+Workflow use in this project as below
+<br>![image](https://github.com/Bsting/pii-data-detection/assets/7638997/60d655d0-5ee5-4479-b3fa-867e4cf0e849)
+
+### 1. Data Collection
+Collect data from [The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data) and perform EDA on the data.
+
+### 2. Data Processing
+Process and prepare the data to ensure its suitability for model training.
+
+### 3. Algorithm Selection
+Select hyperparameters and a specific variant of a model family for training.
+
+### 4. Model Training
+Fit the model with the training data.
+
+### 5. Model Evaluation
+Evaluate the model performance by submitting the inference results to Kaggle.
+
+
