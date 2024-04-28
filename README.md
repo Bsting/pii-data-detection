@@ -107,7 +107,7 @@ What we can do:
 
 For more EDA detail, refer [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
 
-Few experiments were done based on the EDA observations
+Experiments done based on the EDA observations
 - V1: Fine tune DistilBERT with train data
 - V2: Fine tune DistilBERT with train data + stride
 - V3: Fine tune DistilBERT with train data + stride + down sample 'O' 
@@ -170,6 +170,6 @@ Notebooks for the experiments refer [train_inference_notebook](https://github.co
 - Models that do well during training might not perform as expected on new, unseen data. Keeping an eye on their performance from time to time is crucial.
 
 ## Future Work
-- Try larger model with different max length.
-- Try ensemble modeling.
-- Participatie in more Kaggle competition. 
+- Experiment larger model with different max length.
+- Experiment ensemble modeling.
+- Participatie in more Kaggle competition and learn from others.
