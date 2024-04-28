@@ -12,7 +12,7 @@ The goal of this project is to identify PII in text data. PII detection is impor
 
 ## Challenges
 - <b>Variability in PII Formats</b>: PII can appear in various formats (e.g., full names, usernames, initials), making detection challenging.
-- <b>Context Dependency</b>: The presence of PII often depends on the context (e.g., an address within a resume vs. an email body has different implicationsl).
+- <b>Context Dependency</b>: The presence of PII often depends on the context (e.g., an address within a resume vs. an email body has different implications).
 - <b>Data Imbalance</b>: PII entities are relatively rare in large datasets. Imbalanced classes affect model training.
 
 ## Approach
