@@ -159,7 +159,7 @@ V11 | DeBERTa Base | 0.93357 | 0.92906
 
 V10 achieved the highest evaluation results on both the public and private leaderboards, placing me at rank 1178 out of 2049 on the public leaderboard and 1081 out of 2049 on the private leaderboard. More information of the leaderboard can refer [The Learning Agency Lab - PII Data Detection Leaderboard](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/leaderboard) or [leaderboard-eda](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
 
-![image](https://github.com/Bsting/pii-data-detection/assets/7638997/5d221698-754c-4ffd-9937-bc338f8ba8b0)
+![image](https://github.com/Bsting/pii-data-detection/assets/7638997/f062aeaf-7a27-432c-830c-a5227dfe4cf2)
 
 Notebooks for the experiments refer [train_inference_notebook](https://github.com/Bsting/pii-data-detection/tree/main/train_inference_notebook).
 
@@ -170,6 +170,8 @@ Notebooks for the experiments refer [train_inference_notebook](https://github.co
 - Models that do well during training might not perform as expected on new, unseen data. Keeping an eye on their performance from time to time is crucial.
 
 ## Future Work
-- Experiment larger model with different max length.
+- Experiment different pretrained models with different hyperparameters.
+  - [Pretrained_Models](https://huggingface.co/transformers/v2.9.1/pretrained_models.html)
+  - [microsoft/DeBERTa](https://github.com/microsoft/DeBERTa)
 - Experiment ensemble modeling.
 - Participatie in more Kaggle competition and learn from others.
