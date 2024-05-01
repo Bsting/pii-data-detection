@@ -165,7 +165,8 @@ Notebooks for the experiments refer [train_inference_notebook](https://github.co
 
 ## Key Takeaway
 - EDA is crucial in the modeling process.
-- Typically, larger models tend to outperform smaller ones.
+- Model size matter, larger models tend to outperform smaller ones.
+- Vocabulary size of model matter, model with larger vocabulary size tend to outperform smaller ones.
 - Consider experimenting with a small model, as larger model demand greater computational resources and longer training time.
 - Models that do well during training might not perform as expected on new, unseen data. Keeping an eye on their performance from time to time is crucial.
 
