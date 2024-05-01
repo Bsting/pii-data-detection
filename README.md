@@ -16,7 +16,7 @@ The goal of this project is to identify PII in text data. PII detection is impor
 - <b>Data Imbalance</b>: PII entities are relatively rare in large datasets. Imbalanced classes affect model training.
 
 ## Approach
-For this project, i use a dataset from a Kaggle competition ‘[The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data)’. The competition was open from 18<sup>th</sup> January 2024 to 24<sup>th</sup> April 2024 with the goal to develop a model that detects personally identifiable information (PII) in student writing. I aim to train a model with the objective of achieving a high score on the competition leaderboard 🏆.
+For this project, my approach to solving this issue is to use a dataset from a Kaggle competition ‘[The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data)’. The competition was open from 18<sup>th</sup> January 2024 to 24<sup>th</sup> April 2024 with the goal to develop a model that detects personally identifiable information (PII) in student writing. I aim to train a model with the objective of achieving a high score on the competition leaderboard 🏆.
 
 ### __[The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data)__ 
 #### Overview
@@ -66,8 +66,7 @@ The goal of this competition is to develop a model that detects personally ident
 <br/>***Due to upload file size limit, no model file is uploaded to this repo***
 
 ## Workflow
-Workflow use in this project as below
-<br>![image](https://github.com/Bsting/pii-data-detection/assets/7638997/60d655d0-5ee5-4479-b3fa-867e4cf0e849)
+![image](https://github.com/Bsting/pii-data-detection/assets/7638997/25ecbd78-411b-4474-99e5-df4db5269f8f)
 
 ### 1. Data Collection
 Collect data from [The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data) and perform EDA on the data.
@@ -85,6 +84,9 @@ Fit the model with the training data.
 Evaluate the model performance by submitting the inference results to the competition. There are 2 scores: the public score and the private score.
 - The public score is calculated by using approximately 20% of the test data, and this score is calculated after the inference results successfully submitted.
 - The private score is calculated by using approximately 80% of the test data, and this score is calculated after the competition end. 
+
+## Model Architecture
+![image](https://github.com/Bsting/pii-data-detection/assets/7638997/b8a4d3e2-900f-4c7c-a31f-879349122738)
 
 ## Experiment
 Observations from the EDA done on the data collected from [The Learning Agency Lab - PII Data Detection](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data):
