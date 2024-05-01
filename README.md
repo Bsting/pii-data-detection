@@ -145,19 +145,19 @@ To determine the best down-sampling ratio value for ‘O’ label that yields th
 <br>Ratio 0.30 give best public score, and this value was used in V4, V5, V6, V7 and V8.
 
 ### Evaluation Resutls
-<sub>Experiment				| Model | Public Score | Private Score
+<sub>Experiment</sub>	| <sub>Model</sub>                    | <sub>Public Score</sub>    | <sub>Private Score</sub>
 -|-|-:|-:			
-<sub>V1</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.85292</sub>  | <sub>0.87363</sub> 
-<sub>V2</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.87082</sub>  | <sub>0.87942</sub> 
-<sub>V3</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.87546</sub>  | <sub>0.89158</sub> 
-<sub>V4</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.88257</sub>  | <sub>0.88788</sub> 
-<sub>V5</sub>					| <sub>Bert Base Uncased</sub> 				| <sub>0.90284</sub>  | <sub>0.90314</sub> 
-<sub>V6</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.89153</sub>  | <sub>0.89261</sub> 
-<sub>V7</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.89589</sub>  | <sub>0.89253</sub> 
-<sub>V8</sub>					| <sub>Bert Base Uncased</sub> 				| <sub>0.90500</sub>  | <sub>0.90788</sub> 
-<sub>V9</sub>					| <sub>Deberta V3 Small</sub> 				| <sub>0.94756</sub>  | <sub>0.94219</sub> 
+<sub>V1</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.85292</sub>         | <sub>0.87363</sub> 
+<sub>V2</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.87082</sub>         | <sub>0.87942</sub> 
+<sub>V3</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.87546</sub>         | <sub>0.89158</sub> 
+<sub>V4</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.88257</sub>         | <sub>0.88788</sub> 
+<sub>V5</sub>					| <sub>Bert Base Uncased</sub> 				| <sub>0.90284</sub>         | <sub>0.90314</sub> 
+<sub>V6</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.89153</sub>         | <sub>0.89261</sub> 
+<sub>V7</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.89589</sub>         | <sub>0.89253</sub> 
+<sub>V8</sub>					| <sub>Bert Base Uncased</sub> 				| <sub>0.90500</sub>         | <sub>0.90788</sub> 
+<sub>V9</sub>					| <sub>Deberta V3 Small</sub> 				| <sub>0.94756</sub>         | <sub>0.94219</sub> 
 <sub><b>V10</b></sub>	| <sub><b>Deberta V3 Small</b></sub> 	| <sub><b>0.95791</b></sub>  | <sub><b>0.94885</b></sub> 
-<sub>V11</sub>				| <sub>DeBerta Base</sub> 						| <sub>0.93357</sub>  | <sub>0.92906</sub>
+<sub>V11</sub>				| <sub>DeBerta Base</sub> 						| <sub>0.93357</sub>         | <sub>0.92906</sub>
 
 V10 achieved the highest evaluation results on both the public and private leaderboards, placing me at rank 1178 out of 2049 on the public leaderboard and 1081 out of 2049 on the private leaderboard. More information of the leaderboard can refer [The Learning Agency Lab - PII Data Detection Leaderboard](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/leaderboard) or [leaderboard-eda](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
 
