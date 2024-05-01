@@ -179,4 +179,4 @@ Notebooks for the experiments refer [train_inference_notebook](https://github.co
   - [Pretrained_Models](https://huggingface.co/transformers/v2.9.1/pretrained_models.html)
   - [microsoft/DeBERTa](https://github.com/microsoft/DeBERTa)
 - Experiment ensemble modeling.
-- Participatie in more Kaggle competition and learn from others.
+- Participate in more Kaggle competition and learn from others.
