@@ -175,7 +175,7 @@ Notebooks for the experiments refer [train_inference_notebook](https://github.co
 - Models that do well during training might not perform as expected on new, unseen data. Keeping an eye on their performance from time to time is crucial.
 
 ## Future Work
-- Experiment different pretrained models with different hyperparameters.
+- Experiment different pretrained models and different hyperparameters.
   - [Pretrained_Models](https://huggingface.co/transformers/v2.9.1/pretrained_models.html)
   - [microsoft/DeBERTa](https://github.com/microsoft/DeBERTa)
 - Experiment ensemble modeling.
