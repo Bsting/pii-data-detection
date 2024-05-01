@@ -108,54 +108,56 @@ What we can do:
 For more EDA detail, refer [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
 
 Experiments done based on the EDA observations
-- V1: Fine tune DistilBERT with train data
-- V2: Fine tune DistilBERT with train data + stride
-- V3: Fine tune DistilBERT with train data + stride + down sample 'O' 
-- V4: Fine tune DistilBERT with train data + stride + down sample 'O' + external data
-- V5: Fine tune BERT Base with train data + stride + down sample 'O' + external data
-- V6: Fine tune DistilBERT with train data + stride + down sample 'O' + external data + evaluation metric F-Beta5
-- V7: Fine tune DistilBERT with train data + stride + down sample 'O' + external data + evaluation metric F-Beta5 + cross validation
-- V8: Fine tune BERT Base with train data + stride + down sample 'O' + external data + evaluation metric F-Beta5 + cross validation
-- V9: Fine-Tune DeBERTa-V3-Small with train data + down sample 'O' + external data + evaluation metric F-Beta5 + cross validation + no Stride with max length 1024
-- V10: Fine-Tune DeBERTa-V3-Small with train data + down sample 'O' + external data + evaluation metric F-Beta5 + cross validation + no Stride with max length 2048
-- V11: Fine-Tune DeBERTa Base with train data + down sample 'O' + external data + evaluation metric F-Beta5 + cross validation + no Stride with max length 1024
+<sub>Attempt</sub> | <sub>Model</sub> 										| <sub>External Data</sub> 	| <sub>Max Input Length</sub> | <sub>Stride</sub> 		| <sub>Down Sample 'O' Label</sub> 	| <sub>Metric</sub> 	| <sub>Cross Validation</sub>
+-|-|-|-:|-|-|-|-
+<sub>V1</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>No</sub> 						| <sub>512</sub> 							| <sub>No </sub>				| <sub>No</sub> 										| <sub>F1</sub> 			| <sub>No</sub>
+<sub>V2</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>No</sub> 										| <sub>F1</sub> 			| <sub>No</sub>
+<sub>V3</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F1</sub> 			| <sub>No</sub>
+<sub>V4</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F1</sub> 			| <sub>No</sub>
+<sub>V5</sub> 			| <sub>Bert Base Uncased</sub> 				| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F1</sub> 			| <sub>No</sub>
+<sub>V6</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F-Beta5</sub> 	| <sub>No</sub>
+<sub>V7</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F-Beta5</sub> 	| <sub>Yes</sub>
+<sub>V8</sub> 			| <sub>Bert Base Uncased</sub> 				| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F-Beta5</sub> 	| <sub>Yes</sub>
+<sub>V9</sub> 			| <sub>Deberta V3 Small</sub> 				| <sub>Yes</sub> 						| <sub>1024</sub> 						| <sub>No</sub>					| <sub>Ratio 0.30</sub> 						| <sub>F-Beta5</sub> 	| <sub>Yes</sub>
+<sub>V10</sub> 			| <sub>Deberta V3 Small</sub> 				| <sub>Yes</sub> 						| <sub>2048</sub> 						| <sub>No</sub>					| <sub>Ratio 0.30</sub> 						| <sub>F-Beta5</sub> 	| <sub>Yes</sub>
+<sub>V11</sub> 			| <sub>DeBerta Base</sub> 						| <sub>Yes</sub> 						| <sub>1024</sub> 						|	<sub>No</sub>					| <sub>Ratio 0.30</sub> 						| <sub>F-Beta5</sub> 	| <sub>Yes</sub>
 
 ### V2: Fine tune DistilBERT with train data + stride
 In order to find the optimal stride value that yields the best evaluation results, the model was trained using various stride values. Evaluation resutls as below
-Stride | Public Score
--|-
-8 | 0.85732
-<b>32</b> | <b>0.86220</b>
-64 | 0.87082
-128 | 0.86045
+<sub>Stride</sub> 		| <sub>Public Score</sub>
+-|-:
+<sub>8</sub> 					| <sub>0.85732</sub>
+<sub>32</sub> 				| <sub>0.86220</sub>
+<sub><b>64</b></sub> 	| <sub><b>0.87082</b></sub>
+<sub>128</sub> 				| <sub>0.86045</sub>
 
 <br>Stride value 64 give best public score, and this value was used in V3, V4, V5, V6, V7 and V8.
 
 ### V3: Fine tune DistilBERT with train data + stride + down sample 'O' 
 To determine the best down-sampling ratio value for ‘O’ label that yields the best evaluation results, the model was trained using different down-sampling ratio. Evaluation resutls as below
-Ratio | Public Score
--|-
-0.20 | 0.87436
-0.30 | 0.87546
-<b>0.40</b> | <b>0.86778</b>
-0.50 | 0.86380
+<sub>Ratio</sub>        | <sub>Public Score</sub>
+-|-:
+<sub>0.20</sub>         | <sub>0.87436</sub>
+<sub><b>0.30</b></sub>  | <sub><b>0.87546</b></sub>
+<sub>0.40</sub>         | <sub>0.86778</sub>
+<sub>0.50</sub>         | <sub>0.86380</sub>
 
 <br>Ratio 0.30 give best public score, and this value was used in V4, V5, V6, V7 and V8.
 
 ### Evaluation Resutls
-Experiment | Model | Public Score | Private Score
--|-|-|-
-V1 | DistilBERT | 0.85292 | 0.87363
-V2 | DistilBERT | 0.87082 | 0.87942
-V3 | DistilBERT | 0.87546 | 0.89158
-V4 | DistilBERT | 0.88257 | 0.88788
-V5 | BERT Base | 0.90284 | 0.90314
-V6 | DistilBERT | 0.89153 | 0.89261
-V7 | DistilBERT | 0.89589 | 0.89253
-V8 | BERT Base | 0.90500 | 0.90788
-V9 | DeBERTa-V3-Small | 0.94756 | 0.94219
-<b>V10</b> | <b>DeBERTa-V3-Small</b> | <b>0.95791</b> | <b>0.94885</b>
-V11 | DeBERTa Base | 0.93357 | 0.92906
+<sub>Experiment				| Model | Public Score | Private Score
+-|-|-:|-:			
+<sub>V1</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.85292</sub>  | <sub>0.87363</sub> 
+<sub>V2</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.87082</sub>  | <sub>0.87942</sub> 
+<sub>V3</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.87546</sub>  | <sub>0.89158</sub> 
+<sub>V4</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.88257</sub>  | <sub>0.88788</sub> 
+<sub>V5</sub>					| <sub>Bert Base Uncased</sub> 				| <sub>0.90284</sub>  | <sub>0.90314</sub> 
+<sub>V6</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.89153</sub>  | <sub>0.89261</sub> 
+<sub>V7</sub>					| <sub>DistilBert Base Uncased</sub> 	| <sub>0.89589</sub>  | <sub>0.89253</sub> 
+<sub>V8</sub>					| <sub>Bert Base Uncased</sub> 				| <sub>0.90500</sub>  | <sub>0.90788</sub> 
+<sub>V9</sub>					| <sub>Deberta V3 Small</sub> 				| <sub>0.94756</sub>  | <sub>0.94219</sub> 
+<sub><b>V10</b></sub>	| <sub><b>Deberta V3 Small</b></sub> 	| <sub><b>0.95791</b></sub>  | <sub><b>0.94885</b></sub> 
+<sub>V11</sub>				| <sub>DeBerta Base</sub> 						| <sub>0.93357</sub>  | <sub>0.92906</sub>
 
 V10 achieved the highest evaluation results on both the public and private leaderboards, placing me at rank 1178 out of 2049 on the public leaderboard and 1081 out of 2049 on the private leaderboard. More information of the leaderboard can refer [The Learning Agency Lab - PII Data Detection Leaderboard](https://www.kaggle.com/competitions/pii-detection-removal-from-educational-data/leaderboard) or [leaderboard-eda](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
 
