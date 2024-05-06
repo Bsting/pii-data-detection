@@ -113,8 +113,8 @@ Experiments done based on the EDA observations
 <sub>Attempt</sub> | <sub>Model</sub> 										| <sub>External Data</sub> 	| <sub>Max Input Length</sub> | <sub>Stride</sub> 		| <sub>Down Sample 'O' Label</sub> 	| <sub>Metric</sub> 	| <sub>Cross Validation</sub>
 -|-|-|-:|-|-|-|-
 <sub>V1</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>No</sub> 						| <sub>512</sub> 							| <sub>No </sub>				| <sub>No</sub> 										| <sub>F1</sub> 			| <sub>No</sub>
-<sub>V2</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>No</sub> 										| <sub>F1</sub> 			| <sub>No</sub>
-<sub>V3</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F1</sub> 			| <sub>No</sub>
+<sub>V2</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>No</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>No</sub> 										| <sub>F1</sub> 			| <sub>No</sub>
+<sub>V3</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>No</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F1</sub> 			| <sub>No</sub>
 <sub>V4</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F1</sub> 			| <sub>No</sub>
 <sub>V5</sub> 			| <sub>Bert Base Uncased</sub> 				| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F1</sub> 			| <sub>No</sub>
 <sub>V6</sub> 			| <sub>DistilBert Base Uncased</sub> 	| <sub>Yes</sub> 						| <sub>512</sub> 							| <sub>Stride 64</sub> 	| <sub>Ratio 0.30</sub> 						| <sub>F-Beta5</sub> 	| <sub>No</sub>
