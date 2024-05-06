@@ -53,7 +53,7 @@ The goal of this competition is to develop a model that detects personally ident
   - Tokens that are not PII are labeled “O”.
     
 ## Project File Structure
-- [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb) file, EDA notebook on the PII training dataset.
+- [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/pii-data-detection-eda.ipynb) file, EDA notebook on the PII training dataset.
 - [leaderboard-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb) file, EDA notebook on competition leaderboard data released on 25<sup>th</sup> April 2024.
 - [train_inference_notebook](https://github.com/Bsting/pii-data-detection/tree/main/train_inference_notebook) folder, contains notebooks used to train the model and generate submission file for the competition.
 - [data](https://github.com/Bsting/pii-data-detection/tree/main/data), data folder. Only contains data file for the leaderboard. Due to upload file size limit, PII training dataset can be downloaded from following:
@@ -107,7 +107,7 @@ What we can do:
 - split the text to multiple sub-texts.
 - upper whisker end of the position of PII token is 1184, we can fine tune a model which accept longer input sequence to include as much as possible PII tokens without striding the tokens.
 
-For more EDA detail, refer [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/leaderboard-eda.ipynb).
+For more EDA detail, refer [pii-data-detection-eda.ipynb](https://github.com/Bsting/pii-data-detection/blob/main/pii-data-detection-eda.ipynb).
 
 Experiments done based on the EDA observations
 <sub>Attempt</sub> | <sub>Model</sub> 										| <sub>External Data</sub> 	| <sub>Max Input Length</sub> | <sub>Stride</sub> 		| <sub>Down Sample 'O' Label</sub> 	| <sub>Metric</sub> 	| <sub>Cross Validation</sub>
